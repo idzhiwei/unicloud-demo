@@ -26,19 +26,48 @@
 		methods: {
 			create(){
 				console.log('create');
+				uniCloud.callFunction({
+					name: "userCreate",
+					data: {
+						name: "章",
+						age: 28,
+						school:"复旦大学"
+					} 
+				}).then(res => {
+					console.log(res.result)
+				})
 			},
 			del(){
-				console.log("del");
+				console.log("delete");
+				uniCloud.callFunction({
+					name: "userDelete",
+					data: {
+						id: "60bcde06f6a3980001be7c1d"
+					} 
+				}).then(res => {
+					console.log(res.result)
+				})
 			},
 			update(){
 				console.log("update");
+				uniCloud.callFunction({
+					name: "userUpdate",
+					data: {
+						id: "60bcdd60827eca000199e300",
+						name: "佳佳",
+						age: 18,
+						school:"苏州大学"
+					} 
+				}).then(res => {
+					console.log(res.result)
+				})
 			},
 			query() {
 				console.log('query')
 				uniCloud.callFunction({
-					name: "user"
+					name: "userQuery"
 				}).then(res => {
-					console.log(res.result.data)
+					console.log(res.result)
 				})
 			}
 		}
